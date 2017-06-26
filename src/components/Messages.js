@@ -1,10 +1,10 @@
 import React from 'react';
+import translationStore from '../store/store'
 
 class Messages extends React.Component {
 
   onChangeHandler(event, key){
-    
-    this.props.onMessageValueChange(this.props.langIndex, key, event.target.value);
+    translationStore.dispatch({ type: 'SET_MESSAGE_VALUE', langIndex:  this.props.langIndex, key: key, value: event.target.value});
   }
 
   render() {

@@ -24,8 +24,7 @@ class LanguageCard extends React.Component {
   		
   	} else {
   		content = <Messages langIndex={this.props.langIndex} 
-                          messages={this.props.card.messages} 
-                          onMessageValueChange={this.props.onMessageValueChange}/>
+                          messages={this.props.card.messages}/>
   	}
 
 
