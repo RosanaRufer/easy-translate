@@ -1,0 +1,36 @@
+
+/*Language card set*/
+.language-card-set{
+	display: flex;
+}
+
+/*Language card*/
+.language-card{
+	min-width: 200px;
+	min-height: 400px;
+	max-width: 400px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+}
+.language-card-header{
+	display: flex;
+	justify-content: space-between;
+}
+.language-card-header-label{
+	font-weight: bold;
+}
+.language-card-header-button{
+
+}
+.language-card-body{
+	flex-grow:4;
+	display: flex;
+}
+
+/*RawJSON*/
+
+.raw-json{
+	flex-grow:4;
+}
+
