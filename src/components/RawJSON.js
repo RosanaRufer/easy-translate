@@ -4,8 +4,9 @@ class Messages extends React.Component {
 
   render() {
     return (
-     <textarea className="raw-json">
-     	{JSON.stringify(this.props.messages, null, 2) }
+     <textarea className="raw-json" 
+     		   value={JSON.stringify(this.props.messages, null, 2) }
+     		   readOnly>
      </textarea>
     )
   }

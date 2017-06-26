@@ -23,7 +23,9 @@ class LanguageCard extends React.Component {
   		content = <RawJSON messages={this.props.card.messages}/>
   		
   	} else {
-  		content = <Messages messages={this.props.card.messages}/>
+  		content = <Messages langIndex={this.props.langIndex} 
+                          messages={this.props.card.messages} 
+                          onMessageValueChange={this.props.onMessageValueChange}/>
   	}
 
 

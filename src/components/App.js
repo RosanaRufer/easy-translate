@@ -1,5 +1,4 @@
 import React from 'react';
-import LanguageCard from './LanguageCard';
 import LanguageCardSet from './LanguageCardSet';
 
 
@@ -11,6 +10,13 @@ class App extends React.Component {
 
   constructor() {
     super();
+    this.setMessageValue = this.setMessageValue.bind(this);
+  }
+
+  setMessageValue(langIndex, key, value){
+    var newLanguageCardSet = this.state.languageCardSet;
+    newLanguageCardSet[langIndex].messages[key]=value;
+    this.setState({languageCardSet: newLanguageCardSet});
   }
 
   componentWillMount() {
@@ -39,7 +45,8 @@ class App extends React.Component {
     return (
       <div>
             <h1>Easily translate your language JSON</h1>
-            <LanguageCardSet languageCardSet={this.state.languageCardSet}/>
+            <LanguageCardSet languageCardSet={this.state.languageCardSet} 
+                             onMessageValueChange={this.setMessageValue}/>
       </div>
     )
   }

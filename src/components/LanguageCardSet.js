@@ -10,7 +10,10 @@ class LanguageCardSet extends React.Component {
 
   renderCard(card, key){
   	return(
-  		<LanguageCard key={key} card={card}/>
+  		<LanguageCard key={key} 
+                    langIndex={key}
+                    card={card} 
+                    onMessageValueChange={this.props.onMessageValueChange}/>
   	)
   }
 
