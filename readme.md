@@ -1,7 +1,7 @@
 
 Tool for easily translating language resources in JSON.
 
-Using React, Redux and Bulma
+Using _React_, _Redux_ and _Bulma_
 
 Work in progress...
 
