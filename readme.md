@@ -1,10 +1,6 @@
 
+Tool for easily translating language resources in JSON.
 
-LanguageCard
-============
+Using React, Redux and Bulma
 
-key: number; // Ask
-isMainLanguage: boolean;
-languageName: string;
-messages: JSON
-showRaw: boolean
+Work in progress...

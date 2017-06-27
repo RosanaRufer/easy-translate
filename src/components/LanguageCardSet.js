@@ -1,5 +1,6 @@
 import React from 'react';
 import LanguageCard from './LanguageCard';
+import AddLanguageButton from './AddLanguageButton';
 
 class LanguageCardSet extends React.Component {
 
@@ -20,6 +21,7 @@ class LanguageCardSet extends React.Component {
     return (
       <div className="language-card-set">
       	{this.props.languageCardSet.map( (card, key) => this.renderCard(card, key))}
+        <AddLanguageButton/>
       </div>
     )
   }

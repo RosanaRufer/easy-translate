@@ -29,7 +29,7 @@ class LanguageCard extends React.Component {
 
 
     return (
-      <div className="language-card">
+      <div className="box language-card">
       	<div className="language-card-header">
       		<span>
       	    <span className="language-card-header-label">
@@ -39,7 +39,7 @@ class LanguageCard extends React.Component {
       				{this.props.card.languageName} 
       			</span>
       		</span>
-      		<button className="language-card-header-raw-json" 
+      		<button className="language-card-header-raw-json button is-primary is-small" 
       		        onClick={this.toggleRaw}>
       			Edit raw JSON
       		</button>      	

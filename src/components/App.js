@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-            <h1>Easily translate your language JSON</h1>
+            <h1 className="title">Easily translate your language JSON</h1>
             <LanguageCardSet languageCardSet={this.state.languageCardSet} />
       </div>
     )
