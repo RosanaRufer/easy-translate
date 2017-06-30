@@ -4,16 +4,15 @@ import { createStore } from 'redux';
 function initializeState(argument) {
     // Create dummy data:
     let english = {
-      isMainLanguage: true,
       languageName: "English (en-GB)",
       messages: { USER_NAME_LABEL: "User name", PASSWORD_LABEL: "Password", LOG_IN_BUTTON: "Log in"},
+      showRaw: false
      
     };
     let spanish = {
-      isMainLanguage: false,
       languageName: "Español (es-ES)",
-      messages: { USER_NAME_LABEL: "Usuario", PASSWORD_LABEL: "ContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseña", LOG_IN_BUTTON: "Entrar"},
-     
+      messages: { USER_NAME_LABEL: "Usuario", PASSWORD_LABEL: "Contraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaseña", LOG_IN_BUTTON: "Entrar"},
+      showRaw: false
     }
     let languageCardSet = [];
     languageCardSet.push(english);
@@ -26,6 +25,9 @@ function translationReducer(state = initializeState(), action){
   		case 'SET_MESSAGE_VALUE':
      		state.languageCardSet[action.langIndex].messages[action.key] = action.value;
      		return state;
+      case 'TOGGLE_SHOW_RAW':
+        state.languageCardSet[action.langIndex].showRaw = !state.languageCardSet[action.langIndex].showRaw;
+        return state;        
   		default:
     		return state;
   }

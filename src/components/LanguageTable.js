@@ -1,18 +1,23 @@
 import React from 'react';
-/*import translationStore from '../store/store'
-*/
-class LanguageTable extends React.Component {
+import LanguageValueHeaderCell from './LanguageValueHeaderCell';
+import LanguageValueBodyCell from './LanguageValueBodyCell';
 
+/*    let span = (language.isMainLanguage) ?  <span className="tag is-primary" title="Default language">D</span> :  '';*/
+class LanguageTable extends React.Component {
 
   renderHeader(){
     return(
       <thead>
         <tr>
         <th>Key</th>
-          {this.props.languageTable.map((language, key) => <th key={key}>{language.languageName}</th>)}
+        {this.props.languageTable.map((language, langIndex) => <LanguageValueHeaderCell key={langIndex} langIndex={langIndex} language={language}></LanguageValueHeaderCell>)}
         </tr>
       </thead>
     )
+  }
+
+  renderMessageValues(messageKey, keyIndex){
+    return this.props.languageTable.map((language, langIndex) => <LanguageValueBodyCell key={langIndex} langIndex={langIndex} language={language} messageKey={messageKey} keyIndex={keyIndex}></LanguageValueBodyCell>)
   }
 
   renderBody(){
@@ -20,11 +25,13 @@ class LanguageTable extends React.Component {
     return(
       <tbody>
       {
-        Object.keys(mainLanguage.messages).map( (key, index) => {
+        Object.keys(mainLanguage.messages).map( (messageKey, keyIndex) => {
           return (
-            <tr key={index}>
-              <td>{key}</td>
-              {this.props.languageTable.map((language, index) =>  <td key={index}><input value={language.messages[key]}/></td>)}
+            <tr key={keyIndex}>
+              <td className="message-key-cell">{messageKey}</td>
+              {
+                this.renderMessageValues(messageKey, keyIndex)
+              }
             </tr>
           )
         })
@@ -32,8 +39,6 @@ class LanguageTable extends React.Component {
       </tbody>
     )
   }
-
-
 
   render() {
     return (
