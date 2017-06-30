@@ -1,6 +1,6 @@
 import React from 'react';
-import LanguageCardSet from './LanguageCardSet';
 import translationStore from '../store/store';
+import LanguageTable from './LanguageTable';
 
 class App extends React.Component {
 
@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <div>
             <h1 className="title">Easily translate your language JSON</h1>
-            <LanguageCardSet languageCardSet={this.state.languageCardSet} />
+            <LanguageTable languageTable={this.state.languageCardSet} />
       </div>
     )
   }

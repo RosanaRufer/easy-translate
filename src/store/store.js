@@ -12,7 +12,7 @@ function initializeState(argument) {
     let spanish = {
       isMainLanguage: false,
       languageName: "Español (es-ES)",
-      messages: { USER_NAME_LABEL: "Usuario", PASSWORD_LABEL: "Contraseña", LOG_IN_BUTTON: "Entrar"},
+      messages: { USER_NAME_LABEL: "Usuario", PASSWORD_LABEL: "ContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseñaContraseña", LOG_IN_BUTTON: "Entrar"},
      
     }
     let languageCardSet = [];
