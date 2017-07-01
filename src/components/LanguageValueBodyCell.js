@@ -9,30 +9,24 @@ class LanguageValueBodyCell extends React.Component {
 
   renderMessageValueCell(language, langIndex, messageKey, keyIndex){
     if(language.showRaw && keyIndex === 0){
-      let body = document.querySelectorAll("tbody")[0];
-      let textarea = document.querySelectorAll("textarea")[0];
-      let cell = document.querySelectorAll(`#${messageKey}`)[0];
-
-      var paddingRight = window.getComputedStyle(cell,null).getPropertyValue("padding-right").replace('px', '');
-      var paddingBottom = window.getComputedStyle(cell,null).getPropertyValue("padding-bottom").replace('px', '');
-    
-
-      let cellWidth = (cell.clientWidth - 2*parseInt(paddingRight))+'px';
-      let bodyHeight = (body.clientHeight - 2*parseInt(paddingBottom) )+'px';
-
-      return (<td key={`${langIndex}-${keyIndex}`} id={`${messageKey}`}>
-           <textarea style={{height: bodyHeight, position: 'absolute', width: cellWidth, background: 'white'}} className="raw-json" 
+      return (
+        <td key={`raw${langIndex}-${keyIndex}`} id={`raw${messageKey}`} rowSpan="3" rows="8">
+           <textarea key={`raw${langIndex}-${keyIndex}`} style={{height: '160px'}}
            value={JSON.stringify(language.messages, null, 2) }
            readOnly>
-     </textarea>
-      </td>)
+          </textarea>
+        </td>)
     } else {
-      return (
-              <td key={`${langIndex}-${keyIndex}`} id={`${messageKey}`}>
+      if(language.showRaw && keyIndex !==0){
+        return null
+      } else {
+              return (
+              <td key={`noraw${langIndex}-${keyIndex}`} id={`noraw${messageKey}`}>
                 <textarea value={language.messages[messageKey]}  
                           onChange={(event)=>this.onChangeHandler(event, this.props.messageKey)}/>
               </td>
-              )
+        )
+      }
     }
   }
 
