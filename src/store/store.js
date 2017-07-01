@@ -26,6 +26,8 @@ function createNewEmptyLanguage(state) {
   let mainLanguage = state.languageCardSet[0];
   let objCopy = {...mainLanguage};
   objCopy.languageName = "New language...";
+  objCopy.messages = {...mainLanguage.messages};
+  objCopy.showRaw = false;
   Object.keys(objCopy.messages).forEach((key,iterator)=> objCopy.messages[key]="");
   state.languageCardSet.push(objCopy);
   return state;
@@ -41,8 +43,13 @@ function translationReducer(state = initializeState(), action){
         return state;   
       case 'ADD_LANGUAGE':
         let s = createNewEmptyLanguage(state);
-        //state.languageCardSet[action.langIndex].showRaw = !state.languageCardSet[action.langIndex].showRaw;
-        return s;       
+        return s;
+      case 'CHANGE_LANGUAGE_NAME':
+        state.languageCardSet[action.langIndex].languageName = action.newLangName;
+        return state;
+      case 'REMOVE_LANGUAGE':
+        state.languageCardSet.splice(action.langIndex, 1);
+        return state;                     
   		default:
     		return state;
   }

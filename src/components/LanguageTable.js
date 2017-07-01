@@ -33,7 +33,7 @@ class LanguageTable extends React.Component {
       <tbody>
       {
         keys.map( (messageKey, keyIndex) => {
-          let addLanguageCell = (keyIndex===0) ? <td rowSpan={keys.length}><button onClick={(event)=> this.onAddLanguageClicked(event)}>Add language</button></td> : null;
+          let addLanguageCell = (keyIndex===0) ? <td rowSpan={keys.length} className="add-language-cell"><button className="button is-primary is-outlined is-large" onClick={(event)=> this.onAddLanguageClicked(event)}>+</button></td> : null;
           return (
             <tr key={keyIndex}>
               <td className="message-key-cell">{messageKey}</td>
