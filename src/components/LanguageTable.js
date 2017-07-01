@@ -1,6 +1,7 @@
 import React from 'react';
 import LanguageValueHeaderCell from './LanguageValueHeaderCell';
 import LanguageValueBodyCell from './LanguageValueBodyCell';
+import translationStore from '../store/store';
 
 /*    let span = (language.isMainLanguage) ?  <span className="tag is-primary" title="Default language">D</span> :  '';*/
 class LanguageTable extends React.Component {
@@ -11,6 +12,7 @@ class LanguageTable extends React.Component {
         <tr>
         <th>Key</th>
         {this.props.languageTable.map((language, langIndex) => <LanguageValueHeaderCell key={langIndex} langIndex={langIndex} language={language}></LanguageValueHeaderCell>)}
+        <th>Add Language</th>
         </tr>
       </thead>
     )
@@ -20,18 +22,25 @@ class LanguageTable extends React.Component {
     return this.props.languageTable.map((language, langIndex) => <LanguageValueBodyCell key={langIndex} langIndex={langIndex} language={language} messageKey={messageKey} keyIndex={keyIndex}></LanguageValueBodyCell>)
   }
 
+  onAddLanguageClicked(event){
+    translationStore.dispatch({ type: 'ADD_LANGUAGE'});
+  }
+
   renderBody(){
     let mainLanguage = this.props.languageTable[0];
+    let keys = Object.keys(mainLanguage.messages);
     return(
       <tbody>
       {
-        Object.keys(mainLanguage.messages).map( (messageKey, keyIndex) => {
+        keys.map( (messageKey, keyIndex) => {
+          let addLanguageCell = (keyIndex===0) ? <td rowSpan={keys.length}><button onClick={(event)=> this.onAddLanguageClicked(event)}>Add language</button></td> : null;
           return (
             <tr key={keyIndex}>
               <td className="message-key-cell">{messageKey}</td>
               {
                 this.renderMessageValues(messageKey, keyIndex)
               }
+              {addLanguageCell}
             </tr>
           )
         })

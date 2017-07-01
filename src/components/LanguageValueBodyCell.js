@@ -10,7 +10,7 @@ class LanguageValueBodyCell extends React.Component {
   renderMessageValueCell(language, langIndex, messageKey, keyIndex){
     if(language.showRaw && keyIndex === 0){
       return (
-        <td key={`raw${langIndex}-${keyIndex}`} id={`raw${messageKey}`} rowSpan="3" rows="8">
+        <td key={`raw${langIndex}-${keyIndex}`} id={`raw${messageKey}`} rowSpan={Object.keys(language.messages).length} rows="8">
            <textarea key={`raw${langIndex}-${keyIndex}`} style={{height: '160px'}}
            value={JSON.stringify(language.messages, null, 2) }
            readOnly>

@@ -20,6 +20,17 @@ function initializeState(argument) {
 
     return {languageCardSet};
 }
+
+function createNewEmptyLanguage(state) {
+
+  let mainLanguage = state.languageCardSet[0];
+  let objCopy = {...mainLanguage};
+  objCopy.languageName = "New language...";
+  Object.keys(objCopy.messages).forEach((key,iterator)=> objCopy.messages[key]="");
+  state.languageCardSet.push(objCopy);
+  return state;
+}
+
 function translationReducer(state = initializeState(), action){
 	switch (action.type) {
   		case 'SET_MESSAGE_VALUE':
@@ -27,7 +38,11 @@ function translationReducer(state = initializeState(), action){
      		return state;
       case 'TOGGLE_SHOW_RAW':
         state.languageCardSet[action.langIndex].showRaw = !state.languageCardSet[action.langIndex].showRaw;
-        return state;        
+        return state;   
+      case 'ADD_LANGUAGE':
+        let s = createNewEmptyLanguage(state);
+        //state.languageCardSet[action.langIndex].showRaw = !state.languageCardSet[action.langIndex].showRaw;
+        return s;       
   		default:
     		return state;
   }
