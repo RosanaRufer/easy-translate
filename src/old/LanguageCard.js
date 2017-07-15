@@ -36,7 +36,7 @@ class LanguageCard extends React.Component {
       				Language:
       			</span>
       			<span className="language-card-header-language"> 
-      				{this.props.card.languageName} 
+      				{this.props.card.name} 
       			</span>
       		</span>
       		<button className="language-card-header-raw-json button is-primary is-small" 

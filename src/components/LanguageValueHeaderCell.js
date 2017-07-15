@@ -20,7 +20,7 @@ class LanguageValueHeaderCell extends React.Component {
 
   render() {
   	const langIndex = this.props.langIndex;
-  	const langName = this.props.language.languageName;
+  	const langName = this.props.language.name;
   	const buttonText = (this.props.language.showRaw) ? 'JSON' : 'JSON';
     const removeLangButton =  (this.props.langIndex !==0) ? <button className="button is-danger language-card-header-button" onClick={(event)=>{this.removeLanguage(event)}}> X </button> : null;
     return (

@@ -4,13 +4,13 @@ import { createStore } from 'redux';
 function initializeState(argument) {
     // Create dummy data:
     let english = {
-      languageName: "English (en-GB)",
+      name: "English (en-GB)",
       messages: { USER_NAME_LABEL: "User name", PASSWORD_LABEL: "Password", LOG_IN_BUTTON: "Log in"},
       showRaw: false
      
     };
     let spanish = {
-      languageName: "Español (es-ES)",
+      name: "Español (es-ES)",
       messages: { USER_NAME_LABEL: "Usuario", PASSWORD_LABEL: "Contraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaseña", LOG_IN_BUTTON: "Entrar"},
       showRaw: false
     }
@@ -25,7 +25,7 @@ function createNewEmptyLanguage(state) {
 
   let mainLanguage = state.languages[0];
   let objCopy = {...mainLanguage};
-  objCopy.languageName = "New language...";
+  objCopy.name = "New language...";
   objCopy.messages = {...mainLanguage.messages};
   objCopy.showRaw = false;
   Object.keys(objCopy.messages).forEach((key,iterator)=> objCopy.messages[key]="");
@@ -45,7 +45,7 @@ function translationReducer(state = initializeState(), action){
         let s = createNewEmptyLanguage(state);
         return s;
       case 'CHANGE_LANGUAGE_NAME':
-        state.languages[action.langIndex].languageName = action.newLangName;
+        state.languages[action.langIndex].name = action.newLangName;
         return state;
       case 'REMOVE_LANGUAGE':
         state.languages.splice(action.langIndex, 1);
