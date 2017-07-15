@@ -5,7 +5,7 @@ import LanguageTable from './LanguageTable';
 class App extends React.Component {
 
   state = {
-    languageCardSet: {}
+    languages: {}
   }
 
   componentWillMount() {
@@ -21,7 +21,7 @@ class App extends React.Component {
       <div>
             <h1 className="title">Easily translate your language JSON</h1>
             <LanguageTable originLanguage={this.state.originLanguage} 
-                           languageTable={this.state.languageCardSet}/>
+                           languageTable={this.state.languages}/>
       </div>
     )
   }

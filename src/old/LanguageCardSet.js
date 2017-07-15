@@ -20,7 +20,7 @@ class LanguageCardSet extends React.Component {
   render() {
     return (
       <div className="language-card-set">
-      	{this.props.languageCardSet.map( (card, key) => this.renderCard(card, key))}
+      	{this.props.languages.map( (card, key) => this.renderCard(card, key))}
         <AddLanguageButton/>
       </div>
     )

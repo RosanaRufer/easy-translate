@@ -1,7 +1,7 @@
 export const translationReducer = (state, action) => {
   switch (action.type) {
     case 'SET_MESSAGE_VALUE':
-      return state.languageCardSet[action.langIndex].messages[action.key] = action.value;
+      return state.languages[action.langIndex].messages[action.key] = action.value;
     default:
       return state;
   }
