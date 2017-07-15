@@ -41,7 +41,7 @@ function translationReducer(state = initializeState(), action){
       case 'TOGGLE_SHOW_RAW':
         state.languages[action.langIndex].showRaw = !state.languages[action.langIndex].showRaw;
         return state;   
-      case 'ADD_LANGUAGE':
+      case 'ADD_NEW_EMPTY_LANGUAGE':
         let s = createNewEmptyLanguage(state);
         return s;
       case 'CHANGE_LANGUAGE_NAME':

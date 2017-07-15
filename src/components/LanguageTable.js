@@ -26,11 +26,18 @@ class LanguageTable extends React.Component {
   }
 
   renderMessageValues(messageKey, keyIndex){
-    return this.props.languageTable.map((language, langIndex) => <LanguageValueBodyCell key={langIndex} langIndex={langIndex} language={language} messageKey={messageKey} keyIndex={keyIndex}></LanguageValueBodyCell>)
+    return this.props.languageTable
+          .map((language, langIndex) => {
+            return <LanguageValueBodyCell key={langIndex}
+                                          langIndex={langIndex}
+                                          language={language} 
+                                          messageKey={messageKey} 
+                                          keyIndex={keyIndex}/>;
+          })
   }
 
   onAddLanguageClicked(event){
-    translationStore.dispatch({ type: 'ADD_LANGUAGE'});
+    translationStore.dispatch({ type: 'ADD_NEW_EMPTY_LANGUAGE'});
   }
 
   renderBody(){
