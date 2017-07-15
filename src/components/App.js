@@ -20,7 +20,8 @@ class App extends React.Component {
     return (
       <div>
             <h1 className="title">Easily translate your language JSON</h1>
-            <LanguageTable languageTable={this.state.languageCardSet} />
+            <LanguageTable originLanguage={this.state.originLanguage} 
+                           languageTable={this.state.languageCardSet}/>
       </div>
     )
   }

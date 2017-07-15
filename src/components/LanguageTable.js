@@ -11,7 +11,14 @@ class LanguageTable extends React.Component {
       <thead>
         <tr>
         <th>Key</th>
-        {this.props.languageTable.map((language, langIndex) => <LanguageValueHeaderCell key={langIndex} langIndex={langIndex} language={language}></LanguageValueHeaderCell>)}
+        { 
+          this.props.languageTable
+          .map((language, langIndex) => {
+            return <LanguageValueHeaderCell key={langIndex} 
+                                            langIndex={langIndex} 
+                                            language={language}/>
+          })
+        }
         <th>Add Language</th>
         </tr>
       </thead>
